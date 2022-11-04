@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  my-server:
+    build: 
+      dockerfile: ./ubuntu.Dockerfile
+      context: .
+    image: mtrier77/my-ubuntu
+    ports:
+      - "5000-5020:5000-5020"
+      - "2222:22"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+#volumes:
+  # adicionar os volumes aqui!!
+
+
+
+
+## ----------- COMANDOS ------------------ ##
+## compilar com docker-compose... primeiro entrar no diretorio do docker-compose.yml
+# docker compose build
+
+# rodar com docker-compose.. precisa estar no diretorio onde esta a a configuracao: docker-compose.yml
+# docker compose -d up
+# docker compose -d start
+
+
+
+## comandos
+# docker compose create
+# docker compose exec
+# docker compose start
+# docker compose up -d mtrier77/my-ubuntu
+# docker compose run -d --service-ports mtrier77/my-ubuntu
+# docker compose run mtrier77/my-ubuntu
+
+# docker compose run -d  mtrier77/my-ubuntu:latest
