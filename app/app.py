@@ -8,9 +8,9 @@ def hello_world():
     return 'Hello, World!'
 
 
-
 if __name__ == "__main__":
   import os
-  myport = 4000 + os.getuid()
+  myoffset = int(os.popen('cat /etc/myoffset.conf').read())
+  myport = myoffset + os.getuid()
   print('Seu site esta rodando na porta:', myport)
   app.run(port=myport, host='0.0.0.0', debug=True, threaded=True)

@@ -1,0 +1,39 @@
+
+
+
+# arrumado numero da porta..
+# ssh-keygen -f "/home/marcelo/.ssh/known_hosts" -R "[tcp-mo4.mogenius.io]:30548"
+# set PYTHONUNBUFFERED=1
+# apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+# python3 -m ensurepip
+# pip3 install --no-cache --upgrade pip setuptools
+
+
+# https://my-alpine-prod-ambiente22-2xv7x1.mo4.mogenius.io/
+# https://my-alpine-ambiente22-prod-2xv7x1.mo4.mogenius.io/
+# my-alpine-24ou61-ambiente22-prod-2xv7x1-t2taji.mo4.mogenius.io/
+
+# Scaled up replica set my-alpine-24ou61-7cbd79bd76 to 1
+# Successfully assigned ambiente22-prod-2xv7x1-t2taji/my-alpine-24ou61-7cbd79bd76-b84tq to aks-nodepool2-41389138-vmss00000p
+# Pulling image "mo4registry.***/my-alpine-24ou61-ambiente22-prod-2xv7x1-t2taji:latest"
+# Created container my-alpine-24ou61
+# Successfully pulled image "mo4registry.***/my-alpine-24ou61-ambiente22-prod-2xv7x1-t2taji:latest" in 900.129899ms
+# 🚀  Started container my-alpine-24ou61
+# Deleted pod: my-alpine-24ou61-7cbd79bd76-b84tq
+# Scaled down replica set my-alpine-24ou61-7cbd79bd76 to 0
+# Stopping container my-alpine-24ou61
+# Scaled up replica set my-alpine-24ou61-5f6f49d486 to 1
+# Successfully assigned ambiente22-prod-2xv7x1-t2taji/my-alpine-24ou61-5f6f49d486-47k8l to aks-nodepool2-41389138-vmss00000p
+# Pulling image "mo4registry.***/my-alpine-24ou61-ambiente22-prod-2xv7x1-t2taji:latest"
+# Successfully pulled image "mo4registry.***/my-alpine-24ou61-ambiente22-prod-2xv7x1-t2taji:latest" in 183.106404ms
+# 🚀  Started container my-alpine-24ou61
+
+
+# https://prod-ambiente22-2xv7x1.mo4.mogenius.io/
+
+# apk add --no-cache openssh
+# RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
+
+# RUN adduser -h /home/vivek -s /bin/sh -D vivek
+# RUN echo -n 'vivek:some_password_here' | chpasswd
+# RUN ssh-keygen -A

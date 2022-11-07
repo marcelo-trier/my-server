@@ -1,0 +1,4 @@
+
+    location /${_myuser_}.io {
+        proxy_pass http://localhost:${_myport_}/;
+    }

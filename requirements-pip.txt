@@ -4,3 +4,5 @@ oauthlib
 pyOpenSSL
 flask
 flask-cors
+# uwsgi
+# gunicorn

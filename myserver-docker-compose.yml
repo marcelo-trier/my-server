@@ -2,11 +2,13 @@ version: '3'
 
 services:
   my-server:
+    hostname: docker-myserver
     build: 
       dockerfile: ./ubuntu.Dockerfile
       context: .
     image: mtrier77/my-ubuntu
     ports:
+      - "8080:8080"
       - "5000-5020:5000-5020"
       - "2222:22"
     networks:
@@ -29,6 +31,11 @@ networks:
 # rodar com docker-compose.. precisa estar no diretorio onde esta a a configuracao: docker-compose.yml
 # docker compose -d up
 # docker compose -d start
+
+
+# mogenius:
+# ssh mogenius@tcp-mo2.mogenius.io -p [your port]
+# ssh marcelo@tcp-mo2.mogenius.io -p 38695
 
 
 
