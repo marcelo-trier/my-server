@@ -8,9 +8,9 @@ FROM ubuntu:22.04
 RUN apt-get update
 RUN apt-get install -y apt-utils
 RUN apt-get upgrade -y 
-RUN apt-get install -y wget curl openssh-server gzip nano
-RUN apt-get install -y procps python3 pip less nginx sudo members
+RUN apt-get install -y wget curl openssh-server openssh-client gzip nano
 RUN apt-get install -y net-tools iputils-ping zlib1g-dev libzip-dev 
+RUN apt-get install -y procps python3 pip less nginx sudo members
 # iputils-ping iputils-tracepath 
 
 RUN mkdir /var/run/sshd
@@ -18,26 +18,30 @@ RUN mkdir /var/run/sshd
 WORKDIR /root
 COPY . .
 RUN chmod +x ./*.sh
-
 RUN mv *.conf /etc/
-RUN unlink /etc/nginx/sites-enabled/default
-RUN mv nginx--myconfig.com /etc/nginx/sites-enabled/
 
-RUN pip install --upgrade pip
-RUN pip install -r requirements-pip.txt
+# RUN pip install pip
+# RUN pip install -r requirements-pip.txt
+RUN pip install mysql-connector-python requests oauthlib pyOpenSSL flask flask-cors
 
 RUN ./update-users.sh
+#RUN unlink /etc/nginx/sites-enabled/default
+RUN mv nginx--myconfig.com /etc/nginx/sites-enabled/
+RUN unlink /etc/nginx/sites-enabled/default
 
 #RUN apt-get clean && apt autoclean 
 #RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 22 
-EXPOSE 5000-5020
+EXPOSE 8080
+
+#RUN ln -s /root/srvus.service /etc/systemd/system/srvus.service
+#RUN useradd -m srvus && sudo -u srvus ssh-keygen -t ed25519 -N '' -f /home/srvus/.ssh/id_ed25519
+#RUN ssh-keygen -A
 
 
-RUN service nginx start
-
-CMD ["/usr/sbin/sshd", "-D"]
+#CMD ["/usr/sbin/sshd", "-D"]
+CMD ["./mystart.sh"]
 
 
 # docker build -f ubuntu.Dockerfile -t my-ubuntu .

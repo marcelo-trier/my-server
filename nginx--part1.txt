@@ -1,4 +1,5 @@
 
+
 # https://stackoverflow.com/a/61513351
 
 server {
@@ -12,4 +13,4 @@ server {
     location @app {
         proxy_pass http://localhost:5000;
     }
-}
+

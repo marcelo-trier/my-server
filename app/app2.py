@@ -1,4 +1,13 @@
 
+
+import os
+import getpass
+
+myuser = getpass.getuser()
+myoffset = int(os.popen('cat /etc/myoffset.conf').read())
+myport = myoffset + os.getuid()
+
+
 from flask import Flask, request, render_template # Importa a biblioteca
 import datetime
 
@@ -10,6 +19,4 @@ def main():
   return render_template('index.html', mytime=mytime)
 
 if __name__ == '__main__':
-  import os
-  myport = 4000 + os.getuid()
   app.run(port=myport, host='0.0.0.0', debug=True, threaded=True) 

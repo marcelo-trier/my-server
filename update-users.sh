@@ -27,20 +27,35 @@ function create_users_v3() {
   done
 }
 
+
+locationfname='mylocations.txt'
+part1='nginx--part1.txt'
+nginxconfig='nginx--myconfig.com'
+
+# sed -e "s/\${myuser}/marcelo/" -e "s/\${myport}/5004/" mytemplate
+function generate_location() {
+  mylist=$(members ${GROUP})
+  myoffset=$(cat /etc/myoffset.conf)
+
+  cat $part1 > $nginxconfig;
+
+  # touch $locationfname
+  for usr in ${mylist[@]}; do
+      myid=$(id -u ${usr})
+      myport=$(( $myid + $myoffset ))
+      # echo "user --> ${usr} - id: ${myid} -- port: ${myport}"
+      sed -e "s/\${_myuser_}/${usr}/" -e "s/\${_myport_}/${myport}/" ./mytemplate >> $nginxconfig
+  done
+
+  echo "}" >> $nginxconfig;
+}
+
+
 # usermod -aG ${GROUP} <username>
 # groupadd ${GROUP}
 # members ${GROUP}
 
-fuction add_command() {
-  dest='/usr/local/bin/'
-  mycmd='myport'
-  from="/root/${mycmd}.sh"
-
-  cd ${dest}
-  cp ${from} ${dest}
-  chmod a+x "${mycmd}.sh"
-  ln -s ${mycmd}.sh ${mycmd}
-}
+# service nginx restart
 
 create_users_v3
-add_command
+generate_location

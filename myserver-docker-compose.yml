@@ -4,22 +4,25 @@ services:
   my-server:
     hostname: docker-myserver
     build: 
-      dockerfile: ./ubuntu.Dockerfile
+      dockerfile: ./myserver.Dockerfile
       context: .
-    image: mtrier77/my-ubuntu
+    image: mtrier77/my-server-v2
     ports:
       - "8080:8080"
-      - "5000-5020:5000-5020"
+      # - "5000-5020:5000-5020"
       - "2222:22"
     networks:
       - my-network
+    volumes:
+      - ../docker-share:/host-shared
 
 networks:
   my-network:
     driver: bridge
 
-#volumes:
+# volumes:
   # adicionar os volumes aqui!!
+  # /home/marcelo/code/docker-share
 
 
 
@@ -48,3 +51,5 @@ networks:
 # docker compose run mtrier77/my-ubuntu
 
 # docker compose run -d  mtrier77/my-ubuntu:latest
+# docker compose -p 'my-server' -d start
+# docker compose -f "./myserver-docker-compose.yml" up -d --build
