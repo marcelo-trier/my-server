@@ -13,16 +13,20 @@ RUN apt-get install -y net-tools iputils-ping zlib1g-dev libzip-dev
 RUN apt-get install -y procps python3 pip less nginx sudo members
 # iputils-ping iputils-tracepath 
 
+# RUN pip install pip
+# RUN pip install -r requirements-pip.txt
+RUN pip install mysql-connector-python 
+RUN pip install requests oauthlib pyOpenSSL 
+RUN pip install flask flask-cors
+
+
+
 RUN mkdir /var/run/sshd
 
 WORKDIR /root
 COPY . .
 RUN chmod +x ./*.sh
 RUN mv *.conf /etc/
-
-# RUN pip install pip
-# RUN pip install -r requirements-pip.txt
-RUN pip install mysql-connector-python requests oauthlib pyOpenSSL flask flask-cors
 
 RUN ./update-users.sh
 #RUN unlink /etc/nginx/sites-enabled/default

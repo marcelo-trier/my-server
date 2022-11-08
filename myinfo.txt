@@ -1,6 +1,18 @@
 
 
 
+https://localhost.run/docs/
+
+https://free-for.dev/#/?id=tunneling-webrtc-web-socket-servers-and-other-routers
+
+
+shorten url
+https://t.ly/register?ref=edit-link
+https://tinyurl.com/app/myurls
+
+
+
+
 # arrumado numero da porta..
 # ssh-keygen -f "/home/marcelo/.ssh/known_hosts" -R "[tcp-mo4.mogenius.io]:30548"
 # set PYTHONUNBUFFERED=1
