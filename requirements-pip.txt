@@ -1,8 +1,0 @@
-mysql-connector-python
-requests
-oauthlib
-pyOpenSSL
-flask
-flask-cors
-# uwsgi
-# gunicorn

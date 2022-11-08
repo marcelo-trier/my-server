@@ -1,9 +1,19 @@
 
+# docker build:
+docker build --force-rm --no-cache .
+
+
+## TUNELAMENTO:
+-- localhost.run
+    user: mgo-niice
 
 
 https://localhost.run/docs/
 
+
+
 https://free-for.dev/#/?id=tunneling-webrtc-web-socket-servers-and-other-routers
+
 
 
 shorten url

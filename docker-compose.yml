@@ -5,8 +5,8 @@ services:
   my-server:
     hostname: docker-myserver
     build: 
-      dockerfile: ./myserver.Dockerfile
-      context: .
+      dockerfile: ./Dockerfile
+      #context: .
     image: mtrier77/my-server-v2
     ports:
       - "8080:8080"
@@ -14,6 +14,8 @@ services:
       - "2222:22"
     networks:
       - my-network
+    environment:
+      - MYPORT_OFFSET=4000
     volumes:
       - ../docker-share:/host-shared
 
@@ -26,6 +28,8 @@ networks:
   # /home/marcelo/code/docker-share
 
 
+# copiar arquivos para google-drive...
+# https://morioh.com/p/d6e63ade506b
 
 
 ## ----------- COMANDOS ------------------ ##

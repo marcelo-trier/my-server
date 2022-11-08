@@ -1,10 +1,8 @@
-
-
 import os
 import getpass
 
+myoffset = int(os.getenv('MYPORT_OFFSET', '4000'))
 myuser = getpass.getuser()
-myoffset = int(os.popen('cat /etc/myoffset.conf').read())
 myport = myoffset + os.getuid()
 
 
